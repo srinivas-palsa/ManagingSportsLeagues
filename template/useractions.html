@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Homepage{% endblock %}
+
+{% block content %}
+<style>
+        .title {
+            font-size: 3em;
+            margin: 0;
+            font-weight: 700;
+            font-family: 'Pacifico', cursive;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .back {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #283c56;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        .back:hover {
+            background: #3b4371;
+        }
+
+        .container {
+            padding: 40px;
+            margin: 30px auto;
+            width: 500px;
+            border-radius: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #3b4371;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        h3 {
+            font-size: 2em;
+            color: #fff;
+            margin-bottom: 20px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .details {
+            font-size: 1.2em;
+            color: #555;
+            font-family: 'Open Sans', sans-serif;
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+    <div class="container">
+        {% if Teams %}
+        <h3>View Teams</h3>
+        <div class="details">
+            <!-- Display the list of teams here -->
+            {% for Team in Teams %}
+            <p>Team {{ forloop.counter}} |  {{Team.Team_Name}} - {{Team.Team_city}},{{Team.Team_coach}}</p>
+            <!-- Add more teams as needed -->
+            {% endfor %}
+        </div>
+        {% elif matches %}
+        <h3>Check Schedules</h3>
+        <div class="details">
+            {% for match in matches %}
+            <!-- Display the schedule of matches here -->
+            <p>Match {{ forloop.counter}}: {{match.First_team}} vs {{match.Second_team}} on {{match.match_date}} at {{match.time}}</p>
+            <!-- Add more matches as needed -->
+            {% endfor %}
+        </div>
+        {% elif scores %}
+        <h3>Track Scores</h3>
+        <div class="details">
+            {% for score in scores %}
+            <!-- Display the scores of matches here -->
+            <p>{{score.match}}: {{score.match.First_team}} {{score.First_team}} - {{score.match.Second_team}} {{score.second_team}}</p>
+            {% endfor %}
+            <!-- Add more scores as needed -->
+        </div>
+        {% elif contact %}
+        <h3>Access Support</h3>
+        <div class="details">
+            <!-- Provide support contact details here -->
+            <p>For any assistance, please contact support@sportsleague.com</p>
+            <p>Phone: +1-800-123-4567</p>
+        </div>
+        {% else %}
+        <p> No records</p>
+        {% endif %}
+    </div>
+{% endblock %}

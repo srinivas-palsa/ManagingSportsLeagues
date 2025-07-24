@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User - Sports League Management</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #f3e5ab, #f5c6aa);
+            margin: 0;
+            padding: 0;
+            color: #444;
+        }
+
+        header {
+            background: linear-gradient(to right, #f3904f, #3b4371);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #283c56;
+            color: white;
+            position: relative;
+        }
+
+        .title {
+            font-size: 3em;
+            margin: 0;
+            font-weight: 700;
+            font-family: 'Pacifico', cursive;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #283c56;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        .home-button:hover {
+            background: #3b4371;
+        }
+
+        .container {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 30px auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #3b4371;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .actions {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .actions li {
+            background: linear-gradient(to right, #f3e5ab, #f5c6aa);
+            margin: 15px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'Open Sans', sans-serif;
+            color: #3b4371;
+        }
+
+        .actions li:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+        }
+        a{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title">Sports League Management</h1>
+        <a href="{% url 'home' %}"><button class="home-button">Home</button></a>
+    </header>
+    <div class="container">
+        <h2>Admin Actions</h2>
+        <ul class="actions">
+            <a href="{% url 'Teamview' %}"><li>Create and Manage Teams</li></a>
+            <a href="{% url 'Scheduldes' %}"><li>Schedule Matches</li></a>
+            <a href="{% url 'Scores' %}"><li>Update Scores</li></a>
+           <a href="{% url 'Manage_user' %}"> <li>Manage Users</li></a>
+        </ul>
+    </div>
+    <div class="container">
+        <h2>User Actions</h2>
+        <ul class="actions">
+            <a href="{% url 'teams_view' %}"><li>View Teams</li></a>
+            <a href="{% url 'matches_view' %}"><li>Check Schedules</li></a>
+            <a href="{% url 'score_view' %}"><li>Track Scores</li></a>
+            <a href="{% url 'contact' %}"><li>contact</li></a>
+        </ul>
+    </div>
+</body>
+</html>

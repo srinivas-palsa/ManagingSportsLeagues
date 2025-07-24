@@ -1,0 +1,125 @@
+<html>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, #1c92d2, #f2fcfe);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #0d3a6a;
+            color: white;
+        }
+
+        .title {
+            font-size: 3em;
+            margin: 0;
+            font-weight: 700;
+            font-family: 'Lobster', cursive;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .container {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            margin: 30px auto;
+            max-width: 1200px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #185a9d;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        form {
+            margin-bottom: 50px;
+        }
+
+        h3 {
+            font-size: 2em;
+            color: #185a9d;
+            margin-bottom: 20px;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        label {
+            font-size: 1.2em;
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        button {
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #185a9d, #43cea2);
+        }
+        .back {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #283c56;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: larger;
+            font-weight: bolder;
+            font-family: 'Lobster', cursive;
+        }
+    </style>
+    <body>
+        <header>
+            <h1 class="title">Sports League Management</h1>
+            <button class="back" onclick="window.location.href='sports.html'">Back</button>
+        </header>
+        <div class="container">
+            <form>
+                <h3>View Reports</h3>
+                <label for="report-type">Report Type:</label>
+                <select id="report-type" name="report-type" required>
+                    <option value="teams">Teams</option>
+                    <option value="matches">Matches</option>
+                    <option value="scores">Scores</option>
+                    <option value="players">Players</option>
+                </select>
+                <button type="submit">View Report</button>
+            </form>
+    </div>
+    </body>
+</html>

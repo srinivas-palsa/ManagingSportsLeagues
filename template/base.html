@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Homepage{% endblock %}</title>
+    <style>
+        body, h1 {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(136, 107, 62);
+        }
+
+        header {
+            background: linear-gradient(to right, #044151, #c02b10);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position:fixed;
+            width:100%;
+            z-index:1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-family: 'Sriracha', cursive;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .navbar {
+            text-align: center;
+        }
+
+        nav a {
+            margin-right: 50px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 17px;
+            font-weight: bolder;
+        }
+
+        button {
+            border: transparent;
+            background-color: transparent;
+        }
+
+        button:hover {
+            color: white;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 56px;
+            color: black;
+        }
+
+        main {
+            min-height: 100vh;
+            background-repeat: no-repeat;
+            background-image: url();
+            background-size: 100rem;
+            background-position: center;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Managing sports League</a>
+        <div>
+            <nav class="navbar">
+                <button>
+                    <a href="{% url 'home' %}">Home</a>
+                </button>
+                {% if user.is_authenticated %}
+                {% if user.is_staff %}
+                <button>
+                    <a href="{% url 'Teamview' %}">Create Teams</a>
+                </button>
+                <button>
+                    <a href="{% url 'Scheduldes' %}">Schedule Matches</a>
+                </button>
+                <button>
+                    <a href="{% url 'Scores' %}">update Scores</a>
+                </button>
+              
+                {% else %}
+                <button>
+                    <a href="{% url 'teams_view' %}">View Teams</a>
+                </button>
+                <button>
+                <a href="{% url 'matches_view' %}">Check Schedules</a>
+                </button>
+                <button>
+                <a href="{% url 'score_view' %}">Track Scores</a>
+                </button>
+                <button>
+                <a href="{% url 'contact' %}">contact</a>
+                </button>
+                {% endif %}
+                <button>
+                    <a href="{% url 'logout' %}">Logout</a>
+                </button>
+                {% else %}
+                <button>
+                    <a href="{% url 'login' %}">Login</a>
+                </button>
+                <button>
+                    <a href="{% url 'register' %}">Register</a>
+                </button>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+    <main style="padding-top:60px">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
